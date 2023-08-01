@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Player and WpForm/or other, only at the end of the video(version WordPress Media Video)</title>
+</head>
+<body>
+  <video id="player" controls>
+    <!-- Replace "VIDEO_URL" with the URL of your uploaded video from the WordPress media library -->
+    <source src="https://esempi.enzomele.it/wp-content/uploads/2023/08/Exemple-CSS-HTML-Google-Chrome-2023-03-15-13-00-03.mp4" type="video/mp4">
+    <!-- You can add more source elements for different video formats (e.g., WebM, Ogg) -->
+    Your browser does not support the video tag.
+  </video>
+  <div id="form" style="display: none;">
+    <!-- Insert your WPForms or other shortcode here -->
+    [Your ShortCode]
+  </div>
+
+  <script>
+    // Function called when the video ends
+    function showForm() {
+      document.getElementById('form').style.display = 'block';
+    }
+
+    // Code to add an event listener for the 'ended' event of the video
+    const player = document.getElementById('player');
+    player.addEventListener('ended', showForm);
+
+    // Code to pause the video when the form is shown (optional)
+    document.getElementById('form').addEventListener('click', function() {
+      player.pause();
+    });
+  </script>
+</body>
+</html>
